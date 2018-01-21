@@ -39,13 +39,13 @@ void loop()
   float phi_radians;
   float dist;
   
-for(phi_degrees = 0; phi_degrees< 90 ; phi_degrees++){
-  for (float angle = 0; angle < 181; angle++){ 
+for(phi_degrees = 0; phi_degrees< 900 ; phi_degrees++){
+  for (float angle = 0; angle < 1810; angle++){ 
      dist = lidarLite.distance();      // With bias correction
 
 
-    theta = angle*((3.14159265)/180);
-    phi_radians = phi_degrees * ((3.14159265)/180);
+    theta = (angle/10)*((3.14159265)/180);
+    phi_radians = (phi_degrees/10) * ((3.14159265)/180);
     x =dist*sin(phi_radians)*cos(theta);
     y =dist*sin(phi_radians)*sin(theta);
     z =dist*cos(phi_radians);
@@ -59,7 +59,7 @@ for(phi_degrees = 0; phi_degrees< 90 ; phi_degrees++){
     
     Serial.println(z);
     
-    if (angle<180&&angle!=0){
+    if (angle<1800&&angle!=0){
      Servo1.write(angle);
      delay(50);
     }else{ 
