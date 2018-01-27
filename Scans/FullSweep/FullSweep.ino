@@ -71,6 +71,7 @@ for(phi_degrees = 1; phi_degrees< 90 ; phi_degrees=phi_degrees+1){
    Servo2.write(phi_degrees);
    delay(1);
   }
+  break;
 }
 
 
